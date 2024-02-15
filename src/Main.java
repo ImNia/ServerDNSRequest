@@ -28,6 +28,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+        //adventofcode.com baeldung.com
         ArrayList<String> domains = new ArrayList<>(Arrays.asList(args));
 
         InetAddress ipAddress = InetAddress.getByName(DNS_SERVER_ADDRESS);
@@ -50,9 +51,9 @@ public class Main {
 
                 StringBuilder findingIPAddress = new StringBuilder("IP address ");
                 findingIPAddress.append(domain).append(": ");
-                for(int index = 0; index < response.responseDataLength; index++) {
+                for(int index = 0; index < response.responseData.length; index++) {
                     findingIPAddress.append(response.responseData[index]);
-                    if(index < (response.responseDataLength - 1)) {
+                    if(index < (response.responseData.length - 1)) {
                         findingIPAddress.append(".");
                     }
                 }
@@ -122,8 +123,10 @@ public class Main {
         short responseDataLength = in.readShort();
 
         ArrayList<Integer> responseData = new ArrayList<>();
-        for (int i = 0; i < responseDataLength; i++) {
-            responseData.add(in.readByte() & 0xFF);
+        if(answersSection != 0) {
+            for (int i = 0; i < responseDataLength; i++) {
+                responseData.add(in.readByte() & 0xFF);
+            }
         }
 
         return new DataResponse(

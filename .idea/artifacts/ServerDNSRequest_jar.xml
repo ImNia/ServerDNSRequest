@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ServerDNSRequest:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ServerDNSRequest_jar</output-path>
+    <root id="archive" name="ServerDNSRequest.jar">
+      <element id="module-output" name="ServerDNSRequest" />
+    </root>
+  </artifact>
+</component>
